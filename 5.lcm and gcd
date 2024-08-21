@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class LCMAndGCD {
+
+    
+    public static int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    public static int lcm(int a, int b) {
+        return Math.abs(a * b) / gcd(a, b);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of integers: ");
+        int n = scanner.nextInt();
+
+        if (n <= 0) {
+            System.out.println("The number of integers must be positive.");
+            scanner.close();
+            return;
+        }
+
+       
+        int[] numbers = new int[n];
+
+      
+        System.out.println("Enter " + n + " numbers:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+      
+        int resultGCD = numbers[0];
+        int resultLCM = numbers[0];
+
+        for (int i = 1; i < n; i++) {
+            resultGCD = gcd(resultGCD, numbers[i]);
+            resultLCM = lcm(resultLCM, numbers[i]);
+        }
+
+        
+        System.out.println("LCM = " + resultLCM);
+        System.out.println("GCD = " + resultGCD);
+
+        scanner.close();
+    }
+}
