@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class EvenIndexFibonacciSum {
+
+    
+    public static int sumEvenIndexFibonacci(int n) {
+       
+        if (n < 0) return 0;
+
+    
+        int sum = 0;
+        int a = 0; 
+        int b = 1; 
+
+        
+        if (n >= 0) sum += a;
+
+        
+        for (int i = 1; i <= n; i++) {
+            int next = a + b;
+            if (i % 2 == 0) {
+                sum += a;
+            }
+            a = b;
+            b = next;
+        }
+        
+       
+        if (n % 2 == 0) {
+            sum += a;
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+        System.out.print("Enter the value of n: ");
+        int n = scanner.nextInt();
+
+        int result = sumEvenIndexFibonacci(n);
+        
+    
+        System.out.println("Sum of Fibonacci numbers at even indexes: " + result);
+
+        scanner.close();
+    }
+}
