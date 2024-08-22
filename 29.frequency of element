@@ -1,0 +1,55 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class FrequencyCounter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.print("Enter the array elements (comma-separated): ");
+        String input = sc.nextLine();
+
+
+        int[] array = parseInputToArray(input);
+
+
+        Map<Integer, Integer> frequencyMap = findFrequencies(array);
+
+
+        printFrequencyTable(frequencyMap);
+    }
+
+
+    private static int[] parseInputToArray(String input) {
+        String[] tokens = input.split(",");
+        int[] array = new int[tokens.length];
+
+        for (int i = 0; i < tokens.length; i++) {
+            array[i] = Integer.parseInt(tokens[i].trim());
+        }
+
+        return array;
+    }
+
+
+    private static Map<Integer, Integer> findFrequencies(int[] array) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+
+        for (int num : array) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+
+        return frequencyMap;
+    }
+
+
+    private static void printFrequencyTable(Map<Integer, Integer> frequencyMap) {
+        System.out.println("Element | Frequency");
+        System.out.println("--------------------------");
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            System.out.printf("%d           |         %d%n", entry.getKey(), entry.getValue());
+        }
+    }
+  }
