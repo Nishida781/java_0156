@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class VowelConsonantSeparator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.print("Given Word: ");
+        String word = sc.nextLine();
+
+
+        String vowels = "";
+        String consonants = "";
+
+
+        String vowelChars = "aeiouAEIOU";
+
+
+        for (char c : word.toCharArray()) {
+            if (vowelChars.indexOf(c) != -1) {
+                vowels += c + " ";
+            } else if (Character.isLetter(c)) {
+                consonants += c + " ";
+            }
+        }
+
+        System.out.println("Consonants: " + consonants.trim());
+        System.out.println("Vowels: " + vowels.trim());
+    }
+}
