@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class NumberOfFactors {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Given number: ");
+
+
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid input! Please enter a positive integer.");
+            return;
+        }
+
+        int number = sc.nextInt();
+
+        if (number <= 0) {
+            System.out.println("Number of factors is not defined for zero or negative numbers.");
+            return;
+        }
+
+
+        int count = countFactors(number);
+
+
+        System.out.println("Number of factors = " + count);
+    }
+
+
+    public static int countFactors(int num) {
+        int count = 0;
+
+        for (int i = 1; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                if (num / i == i) {
+
+                    count++;
+                } else {
+
+                    count += 2;
+                }
+            }
+        }
+        return count;
+    }
+}
