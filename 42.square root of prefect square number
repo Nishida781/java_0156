@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class SquareRootFinder {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        double number = scanner.nextDouble();
+
+        if (number < 0) {
+            System.out.println("Error: Negative numbers don't have real square roots.");
+        } else {
+            double sqrt = Math.sqrt(number);
+            if (sqrt == (int)sqrt) { // Check if it's a perfect square
+                System.out.println("Square Root: " + (int)sqrt + ", " + -(int)sqrt);
+            } else {
+                System.out.println("The number is not a perfect square.");
+            }
+        }
+
+        scanner.close();
+    }
+}
