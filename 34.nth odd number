@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class NthOddNumberAfterNOddNumbers {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.print("Enter the value of n: ");
+        int n = sc.nextInt();
+
+
+        int result = findNthOddNumberAfterNOddNumbers(n);
+
+
+        System.out.println("The " + n + "-th odd number after the first " + n + " odd numbers is: " + result);
+    }
+
+
+    public static int findNthOddNumberAfterNOddNumbers(int n) {
+
+        return 2 * (2 * n) - 1;
+    }
+}
