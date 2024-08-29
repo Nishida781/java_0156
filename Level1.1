@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class lcm{
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter the 2 integers: ");
+        int a = s.nextInt();
+        int b=s.nextInt();
+
+        if (a <= 0 || b<=0) {
+            System.out.println("The number of integers must be positive.");
+            s.close();
+            return;
+        }
+
+       int n1=a;
+       int n2=b;
+        while (n2 != 0) {
+            int temp = n2;
+            n2 = n1 % n2;
+            n1 = temp;
+        }
+        int l=(a*b)/n1;
+        System.out.println(l);
+
+       
+
+        s.close();
+    }
+}
